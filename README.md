@@ -2,12 +2,13 @@
 
 Este projeto foi desenvolvido como desafio final do Bootcamp Desenvolvedor Python, do IGTI.
 
-O objetivo do projeto foi o desenvolvimento de um modelo de machine learning: desde o pré-processamento, normalização dos dados, treinamento, teste, persistência do modelo e “deploy” da solução final.
+O objetivo do projeto foi o desenvolvimento de um projeto completo de machine learning: desde o pré-processamento, normalização dos dados, treinamento, teste, persistência do modelo e “deploy” da solução final.
 
 ## Base de Dados
 A base de dados utilizada no desenvolvimento (**diabetes.csv**) provém do famoso Dataset do Kaggle Pima Indians Diabetes Database (**https://www.kaggle.com/uciml/pima-indians-diabetes-database**) que trata da ocorrência de diabetes em mulheres.
 
 Por motivos didáticos o Dataset foi fornecido sem cabeçalho, abaixo está o dicionário de dados:
+
 0. Número de vezes em que ficou grávida.
 1. Concentração de glicose.
 2. Pressão diastólica (mm Hg).
