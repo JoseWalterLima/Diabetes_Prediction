@@ -19,7 +19,7 @@ Por motivos didáticos o Dataset foi fornecido sem cabeçalho, abaixo está o di
 7. Idade (anos).
 8. Classificação (0 não diabético | 1 diabético ).
 
-## Condstrução do Modelo
+## Construção do Modelo
 As etapas de pré-processamento dos dados e a construção, treinamento, teste e persistência do modelo foram feitas em um jupyter notebook (**construção_modelo.ipynb**). Foram testados 3 modelos: *KNN (K nearest neighbor)*, *Decision Tree* e *MLP (Multilayer Perceptron)*. 
 
 Como o objetivo era o desenvolvimento do projeto como um todo, não foi criado um baseline para comparação com o desempenho dos modelos (etapa altamente necessária em um projeto real) nem mesmo foi realizado *tuning* do modelo (outra etapa muito importante em um projeto real), sendo utilizado o modelo da forma padrão como foi criado.
