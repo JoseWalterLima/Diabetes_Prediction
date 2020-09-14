@@ -28,10 +28,10 @@ O modelo com melhor nível de acuracidade foi persistido para o arquivo **mlp_mo
 
 ## Aplicação web
 Para colocar o modelo "em produção" foi utilizado o micro-framework Flask, o arquivo **app.py** faz toda a integração através das rotas.
-Foram criadas 2 páginas HTML, uma para que o usuário coloque os dados para uma nova predição (**formulario.html**) e uma segunda onde é mostrado o resultado da predição (**resultado.html**). Ambas as páinas estão na pasta *templates*.
+Foram criadas 2 páginas HTML, uma para que o usuário coloque os dados para uma nova predição (**formulario.html**) e uma segunda onde é mostrado o resultado da predição (**resultado.html**). Ambas as páginas estão na pasta *templates*.
 
 ## Limitações
-O projeto busca desenvolver uma solução simples e unicamente com fins educacionais, não sendo, portanto, uma proposta real de solucação do problema.
+O projeto buscou desenvolver uma solução simples e unicamente com fins educacionais, não sendo, portanto, uma proposta real de solucação do problema.
 Como pontos de melhoría podem ser apontados: 
 1. Necessidade de uma base de dados maior, o que traria maior confiabilidade ao modelo.
 2. Necessidade de uma baseline, de forma a avaliar a efetividade da solucação proposta em relação a uma solução simples e rápida.
