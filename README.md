@@ -1,13 +1,15 @@
-# Previsão de Diabetes
+## Previsão de Diabetes
 
-Este projeto foi desenvolvido como desafio final do Bootcamp Desenvolvedor Python, do IGTI.
+Visando testar meus conhecimentos e habilidades em Data Science, resolvi treinar um modelo de Machine Learning para prever a ocorrência de diabetes em mulheres, utilizando o famoso Dataset do Kaggle **Pima Indians Diabetes Database**.
 
-O objetivo do projeto foi o desenvolvimento de um projeto completo de machine learning: desde o pré-processamento, normalização dos dados, treinamento, teste, persistência do modelo e “deploy” da solução final.
+Este projeto passou por todas as etapas de desenvolvimento de uma solução de Machine Learning, indo desde a exploração dos dados, validação e teste, até o deploy da solução final. 
+
+O app está em produção e pode ser testado no link: https://previsaodiabetes.herokuapp.com/
 
 ## Base de Dados
 A base de dados utilizada no desenvolvimento (**diabetes.csv**) provém do famoso Dataset do Kaggle Pima Indians Diabetes Database (**https://www.kaggle.com/uciml/pima-indians-diabetes-database**) que trata da ocorrência de diabetes em mulheres.
 
-Por motivos didáticos o Dataset foi fornecido sem cabeçalho, abaixo está o dicionário de dados:
+Originalmente o Dataset foi fornecido sem cabeçalho, abaixo está o dicionário de dados:
 
 0. Número de vezes em que ficou grávida.
 1. Concentração de glicose.
@@ -19,20 +21,22 @@ Por motivos didáticos o Dataset foi fornecido sem cabeçalho, abaixo está o di
 7. Idade (anos).
 8. Classificação (0 não diabético | 1 diabético ).
 
-## Construção do Modelo
-As etapas de pré-processamento dos dados e a construção, treinamento, teste e persistência do modelo foram feitas em um jupyter notebook (**construção_modelo.ipynb**). Foram testados 3 modelos: *KNN (K nearest neighbor)*, *Decision Tree* e *MLP (Multilayer Perceptron)*. 
+## Treinamento do Modelo
+As etapas de pré-processamento e análise dos dados e a construção, treinamento, validação, teste e persistência do modelo podem ser conferidas no jupyter notebook (**construção_modelo.ipynb**). 
 
-Como o objetivo era o desenvolvimento do projeto como um todo, não foi criado um baseline para comparação com o desempenho dos modelos (etapa altamente necessária em um projeto real) nem mesmo foi realizado *tuning* do modelo (outra etapa muito importante em um projeto real), sendo utilizado o modelo da forma padrão como foi criado.
+Devido ao desbalanceamento da classe alvo, utilizei o modelo *Decision Tree* para tentar amenizar o problema. Escolhi F1 como métrica de avaliação, uma vez que essa métrica avalia Precision e Recall de forma unificada. O modelo foi tunado com GridsearchCV e foi possível chegar ao score F1 de 0.687, contra uma baseline de 0.523.
 
-O modelo com melhor nível de acuracidade foi persistido para o arquivo **mlp_model.sav** e a normalização dos dados foi persistida para o arquivo **normalização.sav** (para que os dados novos que chegasem via formulário fossem corretamente normalizados e não alterassem o comportamento do modelo). 
+O modelo com os melhores parâmetros foi persistido para o arquivo **model.sav** e a normalização dos dados foi persistida para o arquivo **scaler.sav** (para que os dados novos, que chegam via formulário, possam ser corretamente normalizados e não alterem o comportamento do modelo). 
 
 ## Aplicação web
-Para colocar o modelo "em produção" foi utilizado o micro-framework Flask, o arquivo **app.py** faz toda a integração através das rotas.
-Foram criadas 2 páginas HTML, uma para que o usuário coloque os dados para uma nova predição (**formulario.html**) e uma segunda onde é mostrado o resultado da predição (**resultado.html**). Ambas as páginas estão na pasta *templates*.
+Para fazer o deploy do modelo foi utilizado o micro-framework Flask, o arquivo **app.py** faz toda a orquestração através das rotas. Foram criadas 2 páginas HTML, uma para que o usuário coloque os dados para uma nova predição (**formulario.html**) e uma segunda onde é mostrado o resultado da predição (**resultado.html**). Ambas as páginas estão na pasta *templates*.
+
+O deploy da solução final foi feito na cloud do Heroku.
 
 ## Limitações
 O projeto buscou desenvolver uma solução simples e unicamente com fins educacionais, não sendo, portanto, uma proposta real de solucação do problema.
 Como pontos de melhoría podem ser apontados: 
-1. Necessidade de uma base de dados maior, o que traria maior confiabilidade ao modelo.
-2. Necessidade de uma baseline, de forma a avaliar a efetividade da solucação proposta em relação a uma solução simples e rápida.
-3. Necessidade de tuning do modelo, a fim de melhorar os resultados.
+1. Necessidade de melhor entendimento das features, através da conversa com profissionais da área da saúde, e novas formas de tratamento dos dados.
+2. Novas abordagens para o problema da classe alvo desbalanceada: outros modelos, boosting, oversampling, undersampling, etc.
+3. Melhorar os templates html para que o app fiquei mais fácil de utilizar e mais bonito.
+4. Constribuições e críticas construtivas são bem vindas: https://www.linkedin.com/in/josewalterlima/
