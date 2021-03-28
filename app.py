@@ -3,7 +3,7 @@ import numpy as np
 import os
 import joblib
 from flask import Flask, request, jsonify, render_template
-from sklearn.preprocessing import MinMaxScaler # Data transformation 
+from sklearn.preprocessing import MinMaxScaler 
 
 # Criando o APP
 app = Flask(__name__)
@@ -11,9 +11,9 @@ app = Flask(__name__)
 # Função para fazer previsão com dados do formulário
 def previsao_diabates(lista):
     entrada = np.asarray(lista).reshape(1, 8)
-    entrada_normalizada = joblib.load('normalização.sav')
+    entrada_normalizada = joblib.load('scaler.sav')
     input_variables = entrada_normalizada.transform(entrada)
-    melhor_modelo = joblib.load('mlp_model.sav')
+    melhor_modelo = joblib.load('model.sav')
     output = melhor_modelo.predict(input_variables)
     return output[0]
 
@@ -38,5 +38,4 @@ def saida():
     return render_template('resultado.html', previsao=diagnostico)
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=5000)
